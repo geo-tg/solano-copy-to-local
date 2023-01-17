@@ -42,7 +42,7 @@ solano_dir = r"" # Populate with your parent directory
 archive_dir = os.path.join(solano_dir, "Solano_Archive")
 solano_fgdb = os.path.join(solano_dir, f"Solano_Local.gdb")
 
-sde_cxn = os.path.join(solano_dir, "")
+sde_cxn = os.path.join(solano_dir, "") # Populate with your SDE connection name
 sde_fdataset_name = "solano.GTG.EditData"
 sde_featuredataset = os.path.join(sde_cxn, sde_fdataset_name)
 
@@ -68,7 +68,7 @@ try:
     arcpy.management.ExportXMLWorkspaceDocument(sde_featuredataset, out_xml, "DATA")
 
     print("Importing XML workspace to local fgdb...")
-    arcpy.management.ImportXMLWorkspace(fgdb, out_xml, "DATA")
+    arcpy.management.ImportXMLWorkspaceDocument(fgdb, out_xml, "DATA")
 
     fdataset = os.path.join(fgdb, "EditData")
     local_parcels = os.path.join(fdataset, "Development_Parcels")
